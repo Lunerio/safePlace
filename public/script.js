@@ -6,16 +6,15 @@ import * as GLTFLoader from './threejs-loader/three.js/examples/js/loaders/GLTFL
 const scene = new THREE.Scene();
 scene.background = new THREE.Color('#c8deff');
 
-const color = 0xFFFFFF;
-const intensity = 1.7;
+const color = 0xFFEBAD;
+const intensity = 3;
 const light = new THREE.DirectionalLight(color, intensity);
 light.position.set(0, 10, 0);
-light.target.position.set(-5.9, -3, 0);
+light.target.position.set(-9, 2, 4.7);
 scene.add(light);
 scene.add(light.target);
 
 // const gui = new GUI();
-// gui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('color');
 // gui.add(light, 'intensity', 0, 2, 0.01);
 // gui.add(light.target.position, 'x', -10, 10);
 // gui.add(light.target.position, 'z', -10, 10);
