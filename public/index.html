@@ -5,38 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./threejs-loader/three.js/build/three.js"></script>
-    <script src="./threejs-loader/three.js/examples/js/loaders/GLTFLoader.js"></script>
-    <script src="./threejs-loader/three.js/examples/js/controls/OrbitControls.js"></script>
+    <!-- <script src="./threejs-loader/three.js/examples/js/loaders/GLTFLoader.js"></script> -->
+    <!-- <script src="./threejs-loader/three.js/examples/js/controls/OrbitControls.js"></script> -->
 </head>
-<body>
-    <script>
-        const scene = new THREE.Scene();
-
-        const light = new THREE.DirectionalLight('#FFFFFF', 20);
-        light.position.set(20, 0, 100);
-        scene.add(light);
-
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.z = 2;
-
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
-
-        controls = new THREE.OrbitControls( camera, renderer.domElement );
-
-        const loader = new THREE.GLTFLoader();
-        loader.load('/blender-files/baseModel.gltf', function (gltf) {
-            scene.add(gltf.scene);
-        });
-
-        function animate() {
-            requestAnimationFrame(animate);
-            renderer.render(scene, camera);
-        }
-        animate();
-
-    </script>
+<body style="margin: 0;">
+    <script src="./threejs-loader/three.js/build/three.js"></script>
+    <script src="./script.js" type="module"></script>
 </body>
 </html>
