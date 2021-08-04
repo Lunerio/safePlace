@@ -1,4 +1,7 @@
 # safePlace
+<div align="center">
+    <img src="https://raw.githubusercontent.com/Lunerio/safePlace/main/picture.png" width="400px">
+</div>
 
 ### What is it?
 * Safe place is a personal project that integrates 3D modeling (Blender) with a web browser thanks to the three.js library.
