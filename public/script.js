@@ -1,5 +1,5 @@
-import * as OrbitControls from './threejs-loader/three.js/examples/js/controls/OrbitControls.js';
-import * as GLTFLoader from './threejs-loader/three.js/examples/js/loaders/GLTFLoader.js';
+import * as OrbitControls from './threejs-loader/three/examples/js/controls/OrbitControls.js';
+import * as GLTFLoader from './threejs-loader/three/examples/js/loaders/GLTFLoader.js';
 // import { GUI } from './threejs-loader/three.js/examples/jsm/libs/dat.gui.module.js';
 
 // Create a new scene and add background color
