@@ -1,16 +1,16 @@
 // import * as THREE from './threejs-loader/three.js/build/three.js';
 import * as OrbitControls from './threejs-loader/three.js/examples/js/controls/OrbitControls.js';
 import * as GLTFLoader from './threejs-loader/three.js/examples/js/loaders/GLTFLoader.js';
-import { GUI } from './threejs-loader/three.js/examples/jsm/libs/dat.gui.module.js';
+// import { GUI } from './threejs-loader/three.js/examples/jsm/libs/dat.gui.module.js';
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color('#65c1f7');
+scene.background = new THREE.Color('#C8DEFF');
 
-const color = 0xf9c970;
-const intensity = 3.4;
-const distance = 0;
+const color = 0xfcd75d;
+const intensity = 2.3;
+const distance = 40;
 const light = new THREE.PointLight(color, intensity, distance);
-light.position.set(-1.81, 2.1, 3.8);
+light.position.set(-1.4, 6.2, 4.5);
 scene.add(light);
 
 // const gui = new GUI();
@@ -28,6 +28,7 @@ const renderer = new THREE.WebGLRenderer({
     antialias: true
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.outputEncoding = THREE.sRGBEncoding;
 document.body.appendChild(renderer.domElement);
 
 const controls = new THREE.OrbitControls( camera, renderer.domElement );
