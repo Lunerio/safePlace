@@ -4,10 +4,10 @@ import * as GLTFLoader from './threejs-loader/three.js/examples/js/loaders/GLTFL
 import { GUI } from './threejs-loader/three.js/examples/jsm/libs/dat.gui.module.js';
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color('#c8deff');
+scene.background = new THREE.Color('#65c1f7');
 
 const color = 0xf9c970;
-const intensity = 3.8;
+const intensity = 3.4;
 const distance = 0;
 const light = new THREE.PointLight(color, intensity, distance);
 light.position.set(-1.81, 2.1, 3.8);
