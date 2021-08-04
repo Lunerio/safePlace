@@ -35,10 +35,10 @@ camera.add( audioListener );
 const sound = new THREE.Audio( audioListener );
 scene.add( sound );
 const soundloader = new THREE.AudioLoader();
-soundloader.load('sounds/birds2.mp3', function ( audioBuffer ) {
+soundloader.load('sounds/ambientSounds.mp3', function ( audioBuffer ) {
     sound.setBuffer( audioBuffer );
     sound.setLoop(true);
-    sound.setVolume(3);
+    sound.setVolume(1);
     sound.play();
 }, function ( xhr ) {
     console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
