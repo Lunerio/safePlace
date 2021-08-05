@@ -2,6 +2,10 @@ import * as OrbitControls from './threejs-loader/examples/js/controls/OrbitContr
 import * as GLTFLoader from './threejs-loader/examples/js/loaders/GLTFLoader.js';
 // import { GUI } from './threejs-loader/examples/jsm/libs/dat.gui.module.js';
 
+let flagSonido = 0;
+
+const div = document.getElementById('testing');
+
 // Create a new scene and add background color
 const scene = new THREE.Scene();
 scene.background = new THREE.Color('#C8DEFF');
@@ -21,37 +25,17 @@ scene.add(light);
 // gui.add(light.position, 'z', -10, 10);
 // gui.add(light.position, 'y', 0, 10);
 
-
 // Create new camera and position it
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.z = 4;
 camera.position.y = 2;
 camera.position.x = 1;
 
-
-// Audio loader
-const audioListener = new THREE.AudioListener();
-camera.add( audioListener );
-const sound = new THREE.Audio( audioListener );
-scene.add( sound );
-const soundloader = new THREE.AudioLoader();
-soundloader.load('sounds/ambientSounds.mp3', function ( audioBuffer ) {
-    sound.setBuffer( audioBuffer );
-    sound.setLoop(true);
-    sound.setVolume(1);
-    sound.play();
-}, function ( xhr ) {
-    console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
-}, function ( err ) {
-    console.log( 'An error happened' );
-});
-
-
 // Create renderer
 const renderer = new THREE.WebGLRenderer({
     antialias: true
 });
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(window.innerWidth, window.innerHeight - div.clientHeight);
 renderer.outputEncoding = THREE.sRGBEncoding;
 document.body.appendChild(renderer.domElement);
 
@@ -65,6 +49,28 @@ loader.load('/blender-files/baseModel.glb', function (gltf) {
     scene.add(gltf.scene);
 });
 
+// Audio loader
+div.addEventListener('click', function () {
+    if (flagSonido == 0) {
+        const audioListener = new THREE.AudioListener();
+        camera.add( audioListener );
+        const sound = new THREE.Audio( audioListener );
+        scene.add( sound );
+        const soundloader = new THREE.AudioLoader();
+        soundloader.load('sounds/ambientSounds.mp3', function ( audioBuffer ) {
+            sound.setBuffer( audioBuffer );
+            sound.setLoop(true);
+            sound.setVolume(1);
+            sound.play();
+        }, function ( xhr ) {
+            console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+        }, function ( err ) {
+            console.log( 'An error happened' );
+        });
+        flagSonido = 1;
+    }
+
+});
 
 // Function for rendering the whole scene
 function animate() {
